@@ -7,6 +7,7 @@ def display_scores(user_score, computer_score, number_of_tours):
 # Rock beats scissors
 # Scissors beat paper
 # Paper beats rock
+options = ['rock', 'paper', 'scissors']
 
 # Initialization of the scores
 user_score = 0
@@ -22,14 +23,14 @@ while True:
     user_choice = ""
 
     # the player enters either rock, paper or scissors. If something else, then display a message
-    while (user_choice != 'rock' and user_choice != 'paper' and user_choice != 'scissors'):
+    while (user_choice not in options):
         # if the user didn't choose anything, we just redisplay the input
         if (user_choice != ""):
             print("You entered an invalid choice.")
         user_choice = input("Please choose between 'rock', 'paper', or 'scissors': ")
 
     # we randomly select the computer's choice
-    computer_choice = random.choice(['rock', 'paper', 'scissors'])
+    computer_choice = random.choice(options)
     print("The computer chose : " + computer_choice)
 
     # user and computer chose something, we increment the number of tours
